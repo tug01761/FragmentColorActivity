@@ -3,14 +3,9 @@ package temple.edu.fragmentcoloractivity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-
     }
 
     private void setupViewPager(ViewPager viewPager)
@@ -57,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     {
         mViewPager.setCurrentItem(position);
     }
+
 
 
 }
