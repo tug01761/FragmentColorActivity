@@ -49,9 +49,6 @@ public class PaletteFragment extends Fragment implements AdapterView.OnItemSelec
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
-        //Bundle bundle = new Bundle();
-        //bundle.putInt("key", position);
-        //this.setArguments(bundle);
         if (++check > 1) {
             ((MainActivity) getActivity()).setViewPager(1);
             TextView selectedText = view.findViewById(R.id.colorText);
