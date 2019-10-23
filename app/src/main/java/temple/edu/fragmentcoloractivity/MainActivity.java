@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             Color.parseColor("magenta"),
             Color.parseColor("silver")};
 
+    private SectionsStatePagerAdapter mSectionsStatePagerAdapter;
     private ViewPager mViewPager;
     PaletteFragment paletteFragment = new PaletteFragment().newInstance(color);
 
@@ -34,14 +35,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mSectionsStatePagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
+
         mViewPager = (ViewPager) findViewById(R.id.container);
-
-
-        mViewPager.setAdapter();
-
-
+        setupViewPager(mViewPager);
 
 
     }
+
+    private void setupViewPager(ViewPager viewPager)
+    {
+        SectionsStatePagerAdapter adapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(paletteFragment, "PaletteFragment");
+        //adapter.addFragment(new CanvasFragment(), "CanvasFragment");
+        viewPager.setAdapter(adapter);
+
+    }
+
+
 
 }
