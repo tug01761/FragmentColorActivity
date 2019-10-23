@@ -1,6 +1,7 @@
 package temple.edu.fragmentcoloractivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -25,13 +26,18 @@ public class MainActivity extends AppCompatActivity {
             Color.parseColor("magenta"),
             Color.parseColor("silver")};
 
+    private ViewPager mViewPager;
+    PaletteFragment paletteFragment = new PaletteFragment().newInstance(color);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        PaletteFragment paletteFragment = new PaletteFragment().newInstance(color);
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_palette);
+        setContentView(R.layout.activity_main);
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+
+
+        mViewPager.setAdapter();
 
 
 
