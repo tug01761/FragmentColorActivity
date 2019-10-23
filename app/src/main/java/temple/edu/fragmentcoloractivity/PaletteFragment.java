@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class PaletteFragment extends Fragment implements AdapterView.OnItemSelectedListener{
+
+    int check = 0;
 
     public static PaletteFragment newInstance(int[] color) {
         PaletteFragment myFragment = new PaletteFragment();
@@ -44,8 +47,16 @@ public class PaletteFragment extends Fragment implements AdapterView.OnItemSelec
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        //Bundle bundle = new Bundle();
+        //bundle.putInt("key", position);
+        //this.setArguments(bundle);
+        if (++check > 1) {
+            ((MainActivity) getActivity()).setViewPager(1);
+            TextView selectedText = view.findViewById(R.id.colorText);
+            selectedText.setBackgroundColor(Color.parseColor("white"));
+        }
     }
 
     @Override

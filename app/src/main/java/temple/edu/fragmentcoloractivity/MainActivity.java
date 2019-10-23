@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private SectionsStatePagerAdapter mSectionsStatePagerAdapter;
     private ViewPager mViewPager;
     PaletteFragment paletteFragment = new PaletteFragment().newInstance(color);
+    CanvasFragment canvasFragment = new CanvasFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,14 @@ public class MainActivity extends AppCompatActivity {
     {
         SectionsStatePagerAdapter adapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         adapter.addFragment(paletteFragment, "PaletteFragment");
-        //adapter.addFragment(new CanvasFragment(), "CanvasFragment");
+        adapter.addFragment(canvasFragment, "CanvasFragment");
         viewPager.setAdapter(adapter);
 
+    }
+
+    public void setViewPager(int position)
+    {
+        mViewPager.setCurrentItem(position);
     }
 
 
