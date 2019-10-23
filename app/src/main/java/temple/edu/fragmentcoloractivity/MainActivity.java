@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     //color list
     int[] color={Color.parseColor("white"),
@@ -24,45 +24,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Color.parseColor("cyan"),
             Color.parseColor("magenta"),
             Color.parseColor("silver")};
-    int check = 0;
-
-    PaletteFragment paletteFragment = PaletteFragment.newInstance();
-    CanvasFragment canvasFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
-        Resources res = getResources();
-        String[] text = res.getStringArray(R.array.color_array);
+        PaletteFragment paletteFragment = new PaletteFragment().newInstance(color);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_palette);
 
-        Spinner spinner = (Spinner) findViewById(R.id.mySpinner);
-        spinner.setOnItemSelectedListener(this);
 
-        ColorAdapter colorAdapter = new ColorAdapter(getApplicationContext(), text, color);
-        spinner.setAdapter(colorAdapter);
+
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (++check > 1) {
-            //Intent myIntent = new Intent(getBaseContext(), SecondActivity.class);
-            //myIntent.putExtra("key", position);
-            //startActivity(myIntent);
-            TextView selectedText=  view.findViewById(R.id.colorText);
-            selectedText.setBackgroundColor(Color.parseColor("white"));
-        }
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-
-    }
 }
